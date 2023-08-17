@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\src\\app.js",
+            "restart": true,
+            "runtimeExecutable": "nodemon",
+            "env":{
+                "MONGO_URL":"mongodb+srv://ecommerceCoder:123@clustercitofeliz.3f0s7ty.mongodb.net/Integradora?retryWrites=true&w=majority",
+                "SUPERADMIN_EMAIL":"admin@admin.com",
+                "SUPERADMIN_PASSWORD":"123",
+                "JWT_COOKIE":"AuthCookie",
+                "MAILER_USER":"mailer",
+                "MAILER_PASSWORD":"mailer"
+            }
+        }
+    ]
+}
