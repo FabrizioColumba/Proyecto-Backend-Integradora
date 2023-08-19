@@ -21,7 +21,7 @@ const initializePassportStrategies = () => {
       async (req, email, password, done) => {
         try {
             const {firstName,lastName,role} = req.body;
-            const exists = await usersServices.getUserBy({email});
+            const exists = await usersServices.getBy({email});
             if(exists)
                 return done(null,false,{message:"User already exists"})
             const hashedPassword = await createHash(password);
@@ -32,7 +32,7 @@ const initializePassportStrategies = () => {
               email,
               password:hashedPassword
             });
-            const result = await usersServices.createUser(newUser);
+            const result = await usersServices.create(newUser);
             return done(null,result);
         } catch (error) {
             return done(error);
@@ -52,7 +52,7 @@ const initializePassportStrategies = () => {
             }
             return done(null,resultUser);
         }
-        const user = await usersServices.getUserBy({email});
+        const user = await usersServices.getBy({email});
         if(!user) return done(null,false,{message:"User not found"});
         const isValidPassword = await validatePassword(password,user.password);
         if(!isValidPassword) return done(null, false,{message:"Incorrect credentials"});

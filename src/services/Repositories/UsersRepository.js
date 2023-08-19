@@ -3,19 +3,19 @@ export default class UserRepository{
          this.dao = dao;
     }
 
-    getUser =  () =>{
+    get =  () =>{
         return this.dao.getUser(params);
     }
-    getUserBy =  (params) =>{
+    getBy =  (params) =>{
        return this.dao.getUserBy(params); 
     }
-    createUser =  (user) =>{
+    create =  (user) =>{
         return this.dao.createUser(user);
     }
-    updateUser =  (id,user) =>{
+    update =  (id,user) =>{
         return this.dao.updateUser(id,user)
     }
-    deleteUser =  (id) =>{
+    delete =  (id) =>{
         return this.dao.deleteUser(id);
     }
 }
